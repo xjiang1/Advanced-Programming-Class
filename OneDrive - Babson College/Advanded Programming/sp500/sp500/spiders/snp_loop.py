@@ -9,7 +9,7 @@ class SnpLoopSpider(scrapy.Spider):
 
     def parse(self, response):
         stock = Sp500Item()
-        rows = response.xpath('//table[@class="table table-hover table-borderless table-sm"]//tbody/tr')
+        rows = response.xpath('//div[@class="table-responsive"]//tbody/tr/]//tbody/tr')
 
         for row in rows[1:]:
             stock['number'] = row.xpath('td[1]/text()').get()
